@@ -2,7 +2,7 @@
 const teams = {
   "equipe1": {
     passwords: ["pass1", "pass2", "pass3", "pass4"],
-    url: https://ladpham.github.io/babi-chap-chap/page_equipe1.html
+    url: "https://ladpham.github.io/babi-chap-chap/page_equipe1.html"
   },
   "equipe2": {
     passwords: ["pass5", "pass6", "pass7", "pass8"],
