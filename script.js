@@ -1,23 +1,23 @@
 // Association des mots de passe et des URLs des équipes
 const teams = {
   "equipe1": {
-    passwords: ["pass1", "pass2", "pass3", "pass4"],
+    passwords: ["aB3dE9", "K8mQ2z", "rT4nP6", "W5uY3x"],
     url: "https://ladpham.github.io/babi-chap-chap/page_equipe1.html"
   },
   "equipe2": {
-    passwords: ["pass5", "pass6", "pass7", "pass8"],
+    passwords: ["cE7bR1", "M2vS8q", "nG0pH4", "T9kL2a"],
     url: "https://ladpham.github.io/babi-chap-chap/page_equipe2.html"
   },
   "equipe3": {
-    passwords: ["pass9", "pass10", "pass11", "pass12"],
+    passwords: ["Z1oI6e", "pJ3dU8", "F7gW1b", "xR4mS3"],
     url: "https://ladpham.github.io/babi-chap-chap/page_equipe3.html"
   },
   "equipe4": {
-    passwords: ["pass13", "pass14", "pass15", "pass16"],
+    passwords: ["bQ8zL0", "Y6nC5o", "jK2vT9", "sD3pJ1"],
     url: "https://ladpham.github.io/babi-chap-chap/page_equipe4.html"
   },
   "equipe5": {
-    passwords: ["pass17", "pass18", "pass19", "pass20"],
+    passwords: ["L0eR8q", "uF4kW7", "Q3bN2h", "oP1cV6"],
     url: "https://ladpham.github.io/babi-chap-chap/page_equipe5.html"
   }
 };
