@@ -5,24 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Accueil</title>
   <link rel="stylesheet" href="style.css">
-</head>
   <link rel="icon" href="babi_chap_chap.png" type="image/png"> <!-- Remplacez par le lien de l'image de l'icône -->
-
+  <style>
+    /* Optional: you can add inline styles here or in your external stylesheet */
+    #content {
+      display: none;
+    }
+  </style>
+</head>
 <body>
-    <!-- Compte à rebours -->
+  <!-- Compte à rebours -->
   <div class="countdown-container">
-    <h1>Temps avant le début de votre Babi Chap Chap:</h1>
-    <p>On mijote un truc sympa, promis!</p>
+    <h1>Temps avant le début de votre Babi Chap Chap :</h1>
+    <p>On mijote un truc sympa, promis !</p>
     <div class="timer" id="countdown"></div>
   </div>
 
-  <h1>Bienvenue sur le site des équipes</h1>
-  <form id="accessForm">
-    <label for="code">Entrez votre mot de passe :</label>
-    <input type="text" id="code" placeholder="Mot de passe" required>
-    <button type="submit">Accéder</button>
-  </form>
-  <div id="message"></div>
+  <!-- Contenu du site masqué jusqu'à la fin du compte à rebours -->
+  <div id="content">
+    <h1>Bienvenue sur le site des équipes</h1>
+    <form id="accessForm">
+      <label for="code">Entrez votre mot de passe :</label>
+      <input type="text" id="code" placeholder="Mot de passe" required>
+      <button type="submit">Accéder</button>
+    </form>
+    <div id="message"></div>
+  </div>
+
   <script src="script.js"></script>
   <script>
     // Date cible
