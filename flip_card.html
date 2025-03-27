@@ -32,7 +32,8 @@
     .card {
       width: 100px;
       height: 100px;
-      background: #ddd;
+      background: url('card_back_black.png') no-repeat center center;
+      background-size: cover;
       border: 1px solid #999;
       cursor: pointer;
       display: flex;
@@ -45,11 +46,11 @@
       height: 100%;
       display: none;
     }
-    .card.flipped img {
-      display: block;
-    }
     .card.flipped {
       background: #fff;
+    }
+    .card.flipped img {
+      display: block;
     }
     /* Congratulations animation */
     #congratulations {
@@ -66,7 +67,7 @@
     /* Responsive adjustments for smartphones */
     @media (max-width: 600px) {
       .game-board {
-        grid-template-columns: repeat(3, 1fr); /* Use 3 columns on small screens */
+        grid-template-columns: repeat(3, 1fr);
         grid-gap: 5px;
         width: 90%;
       }
@@ -90,7 +91,7 @@
 
   <!-- Memory Game -->
   <div id="memoryGame">
-    <h2>Jeu de mémoire : Retournez les paires de cartes similaires pour accéder à votre prochaine mission</h2>
+    <h2>Jeu de mémoire : Retournez les masques baoulés similaires pour accéder à votre prochaine mission</h2>
     <div class="game-board" id="gameBoard"></div>
   </div>
 
