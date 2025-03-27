@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -18,7 +17,7 @@
     .countdown-container {
       margin: 50px auto;
     }
-    /* Hide all sections by default */
+    /* Hide sections by default */
     #memoryGame, #congratulations, #content {
       display: none;
     }
@@ -93,7 +92,7 @@
 
   <script>
     // DATE TARGET : Changez la date/heure selon vos besoins.
-    const targetDate = new Date("March 26, 2025 20:00:00").getTime();
+    const targetDate = new Date("April 3, 2025 20:00:00").getTime();
 
     // Countdown logic
     const countdownTimer = setInterval(() => {
@@ -114,6 +113,9 @@
         initializeMemoryGame();
       }
     }, 1000);
+
+    // Global flippedCards array
+    let flippedCards = [];
 
     // Memory Game Logic
     function initializeMemoryGame() {
@@ -146,60 +148,62 @@
         gameBoard.appendChild(card);
       });
 
-      let flippedCards = [];
+      // Reset flippedCards globally
+      flippedCards = [];
       const cards = document.querySelectorAll(".card");
       cards.forEach(card => {
         card.addEventListener("click", () => {
-          // Empêcher de retourner une carte déjà retournée ou si deux cartes sont en cours.
+          // Prevent clicking if already flipped or if two cards are open.
           if (card.classList.contains("flipped") || flippedCards.length === 2) return;
           card.classList.add("flipped");
           flippedCards.push(card);
 
           if (flippedCards.length === 2) {
-            checkForMatch(flippedCards);
+            checkForMatch();
           }
         });
       });
     }
 
-    function checkForMatch(flippedCards) {
+    // Check for match using the global flippedCards array
+    function checkForMatch() {
       const [card1, card2] = flippedCards;
       if (card1.dataset.image === card2.dataset.image) {
-        flippedCards = [];
+        flippedCards = [];  // Clear global array if matched
         checkGameCompletion();
       } else {
         setTimeout(() => {
           card1.classList.remove("flipped");
           card2.classList.remove("flipped");
-          flippedCards = [];
+          flippedCards = []; // Clear global array after flipping back
         }, 1000);
       }
     }
 
-    // Vérifier si toutes les cartes sont retournées (matché)
+    // Check if all cards have been matched
     function checkGameCompletion() {
       const allCards = document.querySelectorAll(".card");
       const matchedCards = Array.from(allCards).filter(card => card.classList.contains("flipped"));
       if (matchedCards.length === allCards.length) {
-        // Déclenche l'animation de félicitations
+        // Trigger congratulations animation
         setTimeout(triggerCongratulations, 500);
       }
     }
 
-    // Transition : Afficher l'animation puis le contenu final
+    // Transition: Display animation, then main content
     function triggerCongratulations() {
       document.getElementById("memoryGame").style.display = "none";
       const congrats = document.getElementById("congratulations");
       congrats.style.display = "block";
 
-      // Après la durée de l'animation (ici 3 secondes), afficher le contenu principal.
+      // After the animation, display the main content.
       setTimeout(() => {
         congrats.style.display = "none";
         document.getElementById("content").style.display = "block";
       }, 3000);
     }
 
-    // Shuffle function (algorithme de Fisher-Yates)
+    // Shuffle function (Fisher-Yates algorithm)
     function shuffle(array) {
       for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
