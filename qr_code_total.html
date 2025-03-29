@@ -3,57 +3,88 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Équipe Blanche</title>
+  <title>QR Total</title>
   <link rel="icon" href="babi_chap_chap.png" type="image/png">
   <style>
     body {
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
-      text-align: center;
       background-image: url('fond_de_couleur.jpg'); /* Remplacez par le lien de l'image */
       background-size: cover;
       background-position: center;
-      height: 100vh;
+      min-height: 100vh;
       color: black;
-    }
-    .container {
-      position: relative;
-      top: 50%;
-      transform: translateY(-50%);
-      background-color: rgba(255, 255, 255, 0.8); /* Fond blanc semi-transparent */
-      padding: 20px;
-      border-radius: 10px;
-      max-width: 600px;
-      margin: 0 auto;
+      overflow-y: auto;
       display: flex;
       align-items: center;
-      justify-content: space-between;
+      justify-content: center;
     }
+
+    .container {
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 800px;
+      margin: 20px;
+      display: flex;
+      flex-direction: row;
+      gap: 20px;
+      flex-wrap: wrap;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
     .text-content {
-      text-align: left;
       flex: 2;
+      min-width: 250px;
     }
+
     .logo {
       flex: 1;
-      max-width: 150px; /* Taille maximale du logo */
-      margin-left: 20px;
+      max-width: 150px;
+      margin: 0 auto;
     }
+
     .logo img {
       width: 100%;
-      border-radius: 50%; /* Arrondi du logo */
+      border-radius: 50%;
     }
+
     h1 {
-      font-size: 2.5em;
-      margin: 0;
+      font-size: 2em;
+      margin-top: 0;
     }
+
     p {
-      font-size: 1.2em;
-      margin: 10px 0;
+      font-size: 1em;
+      line-height: 1.4;
+      margin: 12px 0;
     }
+
     .emoji {
       font-weight: bold;
-      font-size: 1.3em;
+      font-size: 1.2em;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        align-items: center;
+        text-align: left;
+      }
+
+      .logo {
+        max-width: 120px;
+        margin-top: 10px;
+      }
+
+      h1 {
+        font-size: 1.8em;
+      }
+
+      p {
+        font-size: 0.95em;
+      }
     }
   </style>
 </head>
@@ -82,7 +113,7 @@
       Dégustez un petit cola sur la route… et laissez parler votre âme de poète. Composez quelques vers inspirés de l’instant.</p>
     </div>
     <div class="logo">
-      <img src="la_reference.jpg" alt="Point de rdv"> <!-- Remplacez par le lien de l'image du logo -->
+      <img src="la_reference.jpg" alt="Point de rdv"> <!-- Remplacez par l’image -->
     </div>
   </div>
 </body>
