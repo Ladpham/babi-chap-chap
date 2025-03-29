@@ -10,15 +10,38 @@
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
-      background-image: url('fond_de_couleur.jpg.png'); /* Remplacez par le lien de l'image */
+      background-image: url('fond_de_couleur.jpg.png');
       background-size: cover;
       background-position: center;
       min-height: 100vh;
       color: black;
       overflow-y: auto;
+    }
+
+    header {
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 10px 20px;
       display: flex;
-      align-items: center;
       justify-content: center;
+      gap: 20px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 1em;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background-color: #444;
+      color: white;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #222;
     }
 
     .container {
@@ -26,7 +49,7 @@
       padding: 20px;
       border-radius: 10px;
       max-width: 800px;
-      margin: 20px;
+      margin: 20px auto;
       display: flex;
       flex-direction: row;
       gap: 20px;
@@ -50,20 +73,17 @@
       border-radius: 50%;
     }
 
-    h1 {
-      font-size: 2em;
-      margin-top: 0;
-    }
-
-    p {
-      font-size: 1em;
-      line-height: 1.4;
-      margin: 12px 0;
-    }
-
     .emoji {
       font-weight: bold;
       font-size: 1.2em;
+    }
+
+    #results-frame {
+      display: none;
+      width: 100%;
+      height: 80vh;
+      border: none;
+      margin-top: 20px;
     }
 
     @media (max-width: 768px) {
@@ -77,44 +97,59 @@
         max-width: 120px;
         margin-top: 10px;
       }
-
-      h1 {
-        font-size: 1.8em;
-      }
-
-      p {
-        font-size: 0.95em;
-      }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="text-content">
-      <p><span class="emoji">🎯 Mission immédiate :</span><br>
-      Pars sans tarder chercher un délicieux pain au chocolat au bâtiment rouge que tu trouves sur la carte !</p>
 
-      <p><span class="emoji">🚩 Prochaine grande étape :</span><br>
-      Pour espérer monter sur le podium, il te faudra accomplir les missions suivantes avec brio, en équipe, et avec photos à l’appui :</p>
+  <header>
+    <button onclick="showHome()">Accueil</button>
+    <button onclick="showResults()">Résultats</button>
+  </header>
 
-      <p><span class="emoji">🕰️ D’ici 11h30 :</span><br>
-      Invente et proclame votre cri de guerre : il doit faire vibrer les cœurs et réveiller les esprits !</p>
+  <div id="home-content">
+    <div class="container">
+      <div class="text-content">
+        <p><span class="emoji">🎯 Mission immédiate :</span><br>
+          Pars sans tarder chercher un délicieux pain au chocolat au bâtiment rouge que tu trouves sur la carte !</p>
 
-      <p><span class="emoji">⚖️ Sur la route :</span><br>
-      Estimez (ou découvrez) le poids de votre fidèle destrier à quatre roues. Oui, votre voiture !</p>
+        <p><span class="emoji">🚩 Prochaine grande étape :</span><br>
+          Pour espérer monter sur le podium, il te faudra accomplir les missions suivantes avec brio, en équipe, et avec photos à l’appui :</p>
 
-      <p><span class="emoji">🧮 Indice kilométrique :</span><br>
-      Repérez des bornes kilométriques. Additionnez les chiffres que vous y verrez : le total devra correspondre à l’âge cumulé de tous les passagers.</p>
+        <p><span class="emoji">🕰️ D’ici 11h30 :</span><br>
+          Invente et proclame votre cri de guerre : il doit faire vibrer les cœurs et réveiller les esprits !</p>
 
-      <p><span class="emoji">🌊 D’ici 15h30 :</span><br>
-      Dénichez l’objet le plus élégant qui pourrait servir de pagaie pour une aventure en mer. Originalité requise !</p>
+        <p><span class="emoji">⚖️ Sur la route :</span><br>
+          Estimez (ou découvrez) le poids de votre fidèle destrier à quatre roues. Oui, votre voiture !</p>
 
-      <p><span class="emoji">🥤 Pause poétique :</span><br>
-      Dégustez un petit cola sur la route… et laissez parler votre âme de poète. Composez quelques vers inspirés de l’instant.</p>
-    </div>
-    <div class="logo">
-      <img src="la_reference.jpg" alt="Point de rdv"> <!-- Remplacez par l’image -->
+        <p><span class="emoji">🧮 Indice kilométrique :</span><br>
+          Repérez des bornes kilométriques. Additionnez les chiffres que vous y verrez : le total devra correspondre à l’âge cumulé de tous les passagers.</p>
+
+        <p><span class="emoji">🌊 D’ici 15h30 :</span><br>
+          Dénichez l’objet le plus élégant qui pourrait servir de pagaie pour une aventure en mer. Originalité requise !</p>
+
+        <p><span class="emoji">🥤 Pause poétique :</span><br>
+          Dégustez un petit cola sur la route… et laissez parler votre âme de poète. Composez quelques vers inspirés de l’instant.</p>
+      </div>
+      <div class="logo">
+        <img src="la_reference.jpg" alt="Point de rdv">
+      </div>
     </div>
   </div>
+
+  <iframe id="results-frame" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRvdCGAn_XRwH14Cb8-_INdamn48BZwNnyJeNLiCuHV8deGLiUfcWwe10b6QdAXX5yb0smeStFMecRT/pubhtml?gid=1985205909&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+
+  <script>
+    function showHome() {
+      document.getElementById('home-content').style.display = 'block';
+      document.getElementById('results-frame').style.display = 'none';
+    }
+
+    function showResults() {
+      document.getElementById('home-content').style.display = 'none';
+      document.getElementById('results-frame').style.display = 'block';
+    }
+  </script>
+
 </body>
 </html>
